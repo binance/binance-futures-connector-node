@@ -7,6 +7,6 @@ const umFuturesClient = new UMFutures(apiKey, apiSecret, {
 })
 
 umFuturesClient
-  .changeInitialLeverage('BNBUSDT', 'CROSSED')
+  .changeMarginType('BNBUSDT', 'CROSSED')
   .then((response) => console.log(response))
   .catch(console.error)
