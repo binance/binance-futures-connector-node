@@ -7,6 +7,6 @@ const cmFuturesClient = new CMFutures(apiKey, apiSecret, {
 })
 
 cmFuturesClient
-  .changeInitialLeverage('BNBUSD_PERP', 'CROSSED')
+  .changeMarginType('BNBUSD_PERP', 'CROSSED')
   .then((response) => console.log(response))
   .catch(console.error)
