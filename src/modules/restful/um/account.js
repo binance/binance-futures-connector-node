@@ -181,6 +181,54 @@ const Account = (superclass) =>
         options
       )
     }
+
+    /**
+     * Query User Rate Limit (USER_DATA)
+     *
+     * GET /fapi/v1/rateLimit/order
+     *
+     * {@link https://binance-docs.github.io/apidocs/futures/en/#query-user-rate-limit-user_data}
+     */
+    getUserRateLimit (options = {}) {
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/rateLimit/order`,
+        options
+      )
+    }
+
+    /**
+     * Toggle BNB Burn On Futures Trade (TRADE)
+     *
+     * POST /fapi/v1/feeBurn
+     *
+     * {@link https://binance-docs.github.io/apidocs/futures/en/#toggle-bnb-burn-on-futures-trade-trade}
+     */
+    feeBurn (feeBurn, options = {}) {
+      validateRequiredParameters({ feeBurn })
+      return this.signRequest(
+        'POST',
+        `${this.baseURL}/${this.product}/v1/feeBurn`,
+        Object.assign(options, {
+          feeBurn: feeBurn.toLowerCase()
+        })
+      )
+    }
+
+    /**
+     * Get BNB Burn Status (USER_DATA)
+     *
+     * GET /fapi/v1/feeBurn
+     *
+     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-bnb-burn-status-user_data}
+     */
+    getFeeBurn (options = {}) {
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/feeBurn`,
+        options
+      )
+    }
   }
 
 module.exports = Account

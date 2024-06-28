@@ -6,7 +6,7 @@ const { isEmptyValue } = require('../../helpers/utils')
 class UMStream extends FuturesBaseStream {
   constructor (options = {}) {
     super(options)
-    this.wsURL = options.wsURL || 'wss://fstream.binance.com'
+    this.wsURL = options.wsURL || 'wss://fstream.binancefuture.com'
   }
 
   /**

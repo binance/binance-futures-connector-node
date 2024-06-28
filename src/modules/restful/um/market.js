@@ -95,6 +95,22 @@ const Market = (superclass) =>
     }
 
     /**
+     * Quarterly Contract Settlement Price
+     *
+     * GET /futures/data/delivery-price
+     *
+     * {@link https://binance-docs.github.io/apidocs/futures/en/#quarterly-contract-settlement-price}
+     */
+    deliveryPrice (pair) {
+      validateRequiredParameters({ pair })
+      return this.publicRequest(
+        'GET',
+        `${this.baseURL}/futures/data/delivery-price`,
+        { pair }
+      )
+    }
+
+    /**
      * Historical BLVT NAV Kline/Candlestick
      *
      * GET /fapi/v1/lvtKlines
@@ -107,6 +123,21 @@ const Market = (superclass) =>
         'GET',
         `${this.baseURL}/${this.product}/v1/lvtKlines`,
         { symbol, interval, startTime, endTime, limit }
+      )
+    }
+
+    /**
+     * Symbol Price Ticker V2
+     *
+     * GET /fapi/v2/ticker/price
+     *
+     * {@link https://binance-docs.github.io/apidocs/futures/en/#symbol-price-ticker-v2}
+     */
+    getPriceTickerV2 (symbol) {
+      return this.publicRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v2/ticker/price`,
+        { symbol }
       )
     }
 
