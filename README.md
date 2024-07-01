@@ -234,7 +234,7 @@ The WebSocket URLs for the available futures environments are as follows:
 
 - Testnet: wss://stream.binancefuture.com
 - Main CM: wss://dstream.binancefuture.com
-- Main UM: wss://fstream.binance.com
+- Main UM: wss://fstream.binancefuture.com
 
 ### Websocket Streams
 
@@ -255,7 +255,7 @@ const callbacks = {
 const umWebsocketStreamClient = new UMStream({
   logger,
   callbacks,
-  wsURL: "wss://fstream.binance.com",
+  wsURL: "wss://fstream.binancefuture.com",
 });
 
 // Subscribe to the allMarketMiniTickersStream stream
