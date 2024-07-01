@@ -1,6 +1,6 @@
 # Change log
 
-## v0.1.3 - 2024-06-28
+## v0.1.3 - 2024-07-01
 ### Added
 #### UM Futures
 - `GET /fapi/v1/rateLimit/order`
