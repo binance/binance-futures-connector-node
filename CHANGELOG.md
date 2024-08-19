@@ -1,5 +1,10 @@
 # Change log
 
+## v0.1.4 - 2024-08-19
+### Changed
+- Updated dependencies
+- Fixed `changeMarginType` example function name issue
+
 ## v0.1.3 - 2024-07-01
 ### Added
 #### UM Futures
