@@ -241,7 +241,7 @@ The WebSocket URLs for the available futures environments are as follows:
 You can connect to the WebSocket stream using the UMStream Module (for USD-M Futures). Here is an example:
 
 ```javascript
-const UMStream = require("@binance/futures-connector");
+const { UMStream } = require("@binance/futures-connector");
 const logger = new Console({ stdout: process.stdout, stderr: process.stderr });
 
 // Define callbacks for different events
