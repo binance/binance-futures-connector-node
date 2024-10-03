@@ -1,5 +1,10 @@
 # Change log
 
+## v0.1.5 - 2024-10-03
+### Changed
+- Updated dependencies 
+- Updated documentation links
+
 ## v0.1.4 - 2024-08-19
 ### Changed
 - Updated dependencies

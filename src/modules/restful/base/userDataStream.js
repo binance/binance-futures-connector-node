@@ -15,8 +15,8 @@ const UserDataStream = (superclass) =>
      * POST /fapi/v1/listenKey<br>
      * POST /dapi/v1/listenKey<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#start-user-data-stream-user_stream}
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#start-user-data-stream-user_stream}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Start-User-Data-Stream}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Start-User-Data-Stream}
      */
     createListenKey () {
       return this.publicRequest('POST', `/${this.product}/v1/listenKey`)
@@ -28,8 +28,8 @@ const UserDataStream = (superclass) =>
      * PUT /fapi/v1/listenKey<br>
      * PUT /dapi/v1/listenKey<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#keepalive-user-data-stream-user_stream}
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#keepalive-user-data-stream-user_stream}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Keepalive-User-Data-Stream}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Keepalive-User-Data-Stream}
      *
      * @param {string} listenKey
      */
@@ -46,8 +46,8 @@ const UserDataStream = (superclass) =>
      * DELETE /fapi/v1/listenKey<br>
      * DELETE /dapi/v1/listenKey<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#close-user-data-stream-user_stream}
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#close-user-data-stream-user_stream}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Close-User-Data-Stream}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Close-User-Data-Stream}
      *
      * @param {string} listenKey
      */

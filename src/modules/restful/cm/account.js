@@ -22,7 +22,7 @@ const Account = (superclass) =>
      *
      * PUT /dapi/v1/order
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#modify-order-trade}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Modify-Order}
      *
      * @param {string} symbol
      * @param {string} side
@@ -47,7 +47,7 @@ const Account = (superclass) =>
      *
      * PUT /dapi/v1/batchOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#modify-multiple-orders-trade}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Modify-Multiple-Orders}
      *
      * @param {array} batchOrders
      * @param {object} options
@@ -69,7 +69,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v1/allOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#all-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/All-Orders}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -88,7 +88,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v1/balance
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#account-balance-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Futures-Account-Balance}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -106,7 +106,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v1/account
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#account-information-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Account-Information}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -124,7 +124,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v1/positionRisk
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#position-risk-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Position-Information}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -142,7 +142,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v1/userTrades
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#account-trade-list-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Account-Trade-List}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -161,7 +161,7 @@ const Account = (superclass) =>
      *
      * GET /dapi/v2/leverageBracket
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#get-notional-bracket-for-symbol}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Notional-Bracket-for-Symbol}
      *
      * @param {object} options
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
