@@ -16,7 +16,7 @@ const Market = (superclass) =>
      * CM: GET /dapi/v1/ping<br>
      *
      * Test connectivity to the Rest API.<br>
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#test-connectivity}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Test-Connectivity}
      */
     ping () {
       return this.publicRequest(
@@ -32,7 +32,7 @@ const Market = (superclass) =>
      * CM: GET /dapi/v1/time<br>
      *
      * Test connectivity to the Rest API and get the current server time.<br>
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#check-server-time}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Check-Server-Time}
      */
     getTime () {
       return this.publicRequest(
@@ -48,7 +48,7 @@ const Market = (superclass) =>
      * CM: GET /dapi/v1/exchangeInfo<br>
      *
      * Get current exchange trading rules and symbol information.<br>
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#exchange-information}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Exchange-Information}
      */
     getExchangeInfo () {
       return this.publicRequest(
@@ -64,7 +64,7 @@ const Market = (superclass) =>
      * CM: GET /dapi/v1/depth<br>
      *
      * Get the Order Book for a specific symbol.<br>
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#order-book}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/websocket-api/Order-Book}
      */
     getDepth (symbol, limit) {
       validateRequiredParameters({ symbol })
@@ -86,7 +86,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/trades<br>
      * CM: GET /dapi/v1/trades<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#recent-trades-list}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Recent-Trades-List}
      */
     getTrades (symbol, limit) {
       validateRequiredParameters({ symbol })
@@ -103,7 +103,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/historicalTrades<br>
      * CM: GET /dapi/v1/historicalTrades<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#old-trades-lookup-market_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Old-Trades-Lookup}
      */
     getHistoricalTrades (symbol, limit, fromId) {
       validateRequiredParameters({ symbol })
@@ -120,7 +120,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/aggTrades<br>
      * CM: GET /dapi/v1/aggTrades<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#compressed-aggregate-trades-list}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Compressed-Aggregate-Trades-List}
      */
     getAggTrades (symbol, fromId, startTime, endTime, limit) {
       validateRequiredParameters({ symbol })
@@ -137,7 +137,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/klines<br>
      * CM: GET /dapi/v1/klines<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#kline-candlestick-data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Kline-Candlestick-Data}
      */
     getKlines (symbol, interval, startTime, endTime, limit) {
       validateRequiredParameters({ symbol, interval })
@@ -154,7 +154,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/premiumIndex<br>
      * CM: GET /dapi/v1/premiumIndex<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-premium-index-funding-rate}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Mark-Price}
      */
     getPremiumIndex (symbol) {
       return this.publicRequest(
@@ -170,7 +170,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/fundingRate<br>
      * CM: GET /dapi/v1/fundingRate<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-funding-rate-history}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Get-Funding-Rate-History}
      */
     getFundingRate (symbol, startTime, endTime, limit) {
       return this.publicRequest(
@@ -186,7 +186,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/premiumIndexKlines<br>
      * CM: GET /dapi/v1/premiumIndexKlines<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-premium-index-klines}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Premium-Index-Kline-Data}
      */
     getPremiumIndexKlines (symbol, interval, startTime, endTime, limit) {
       validateRequiredParameters({ symbol, interval })
@@ -203,7 +203,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/continuousKlines<br>
      * CM: GET /dapi/v1/continuousKlines<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#continuous-contract-kline-candlestick-data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Continuous-Contract-Kline-Candlestick-Data}
      */
     getContinuousKlines (
       pair,
@@ -227,7 +227,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/indexPriceKlines<br>
      * CM: GET /dapi/v1/indexPriceKlines<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#index-price-kline-candlestick-data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Index-Price-Kline-Candlestick-Data}
      */
     getIndexPriceKlines (pair, interval, startTime, endTime, limit) {
       validateRequiredParameters({ pair, interval })
@@ -244,7 +244,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/ticker/24hr<br>
      * CM: GET /dapi/v1/ticker/24hr<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#24hr-ticker-price-change-statistics}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/24hr-Ticker-Price-Change-Statistics}
      */
     get24hrTicker (symbol, pair) {
       if (symbol && pair) {
@@ -265,7 +265,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/ticker/price<br>
      * CM: GET /dapi/v1/ticker/price<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#symbol-price-ticker}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/websocket-api/Symbol-Price-Ticker}
      */
     getPriceTicker (symbol, pair) {
       if (symbol && pair) {
@@ -286,7 +286,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/ticker/bookTicker<br>
      * CM: GET /dapi/v1/ticker/bookTicker<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#symbol-order-book-ticker}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/websocket-api/Symbol-Order-Book-Ticker}
      */
     getBookTicker (symbol, pair) {
       if (symbol && pair) {
@@ -307,7 +307,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/openInterest<br>
      * CM: GET /dapi/v1/openInterest<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#open-interest}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Open-Interest}
      */
     getOpenInterest (symbol) {
       validateRequiredParameters({ symbol })
@@ -325,7 +325,7 @@ const Market = (superclass) =>
      * UM: GET /fapi/v1/markPriceKlines<br>
      * CM: GET /dapi/v1/markPriceKlines<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#mark-price-kline-candlestick-data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Mark-Price-Kline-Candlestick-Data}
      */
     getMarkPriceKlines (symbol, interval, startTime, endTime, limit) {
       validateRequiredParameters({ symbol, interval })

@@ -19,7 +19,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/openInterestHist
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#open-interest-statistics}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Open-Interest-Statistics}
      */
     getOpenInterestStatistics (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -35,7 +35,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/topLongShortAccountRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#top-trader-long-short-ratio-accounts}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Top-Long-Short-Account-Ratio}
      */
     topTraderLongShortAccountRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -51,7 +51,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/topLongShortPositionRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#top-trader-long-short-ratio-positions}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Top-Trader-Long-Short-Ratio}
      */
     topTraderLongShortPositionRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -67,7 +67,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/globalLongShortAccountRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#long-short-ratio}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Long-Short-Ratio}
      */
     globalLongShortAccountRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -83,7 +83,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/takerlongshortRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#taker-buy-sell-volume}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Taker-BuySell-Volume}
      */
     takerBuySellVolume (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -99,7 +99,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/delivery-price
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#quarterly-contract-settlement-price}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Delivery-Price}
      */
     deliveryPrice (pair) {
       validateRequiredParameters({ pair })
@@ -115,7 +115,7 @@ const Market = (superclass) =>
      *
      * GET /fapi/v1/lvtKlines
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#historical-blvt-nav-kline-candlestick}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Historical-BLVT-NAV-Kline-Candlestick}
      */
     blvtKlines (symbol, interval, startTime, endTime, limit) {
       validateRequiredParameters({ symbol, interval })
@@ -131,7 +131,7 @@ const Market = (superclass) =>
      *
      * GET /fapi/v2/ticker/price
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#symbol-price-ticker-v2}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Symbol-Price-Ticker-v2}
      */
     getPriceTickerV2 (symbol) {
       return this.publicRequest(
@@ -146,7 +146,7 @@ const Market = (superclass) =>
      *
      * GET /fapi/v1/indexInfo
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#composite-index-symbol-information}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Composite-Index-Symbol-Information}
      */
     indexInfo (symbol) {
       return this.publicRequest(
@@ -161,7 +161,7 @@ const Market = (superclass) =>
      *
      * GET /fapi/v1/assetIndex
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#multi-assets-mode-asset-index}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index}
      */
     assetIndex (symbol) {
       return this.publicRequest(

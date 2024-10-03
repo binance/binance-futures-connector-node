@@ -19,7 +19,7 @@ const Account = (superclass) =>
      *
      * POST /fapi/v1/multiAssetsMargin
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#change-multi-assets-mode-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Multi-Assets-Mode}
      */
     changeMultiAssetsMode (multiAssetsMargin, options = {}) {
       validateRequiredParameters({ multiAssetsMargin })
@@ -37,7 +37,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/multiAssetsMargin
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#multi-assets-margin-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Current-Multi-Assets-Mode}
      */
     getMultiAssetsMode (options = {}) {
       return this.signRequest(
@@ -52,7 +52,7 @@ const Account = (superclass) =>
      *
      * PUT /fapi/v1/order
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#modify-order-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/Modify-Order}
      */
     modifyOrder (symbol, side, quantity, price, options = {}) {
       validateRequiredParameters({ symbol, side, quantity, price })
@@ -73,7 +73,7 @@ const Account = (superclass) =>
      *
      * PUT /fapi/v1/batchOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#modify-multiple-orders-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Modify-Multiple-Orders}
      */
     modifyMultipleOrders (batchOrders, options = {}) {
       validateRequiredParameters({ batchOrders })
@@ -91,7 +91,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/allOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#all-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/All-Orders}
      */
     getAllOrders (symbol, options = {}) {
       validateRequiredParameters({ symbol })
@@ -109,7 +109,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v2/balance
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#futures-account-balance-v2-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Futures-Account-Balance-V2}
      */
     getFuturesAccountBalanceV2 (options = {}) {
       return this.signRequest(
@@ -124,7 +124,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v2/account
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#account-information-v2-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Account-Information-V2}
      */
     getAccountInformationV2 (options = {}) {
       return this.signRequest(
@@ -139,7 +139,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v2/positionRisk
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#position-information-v2-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/Position-Information}
      */
     getPositionInformationV2 (options = {}) {
       return this.signRequest(
@@ -154,7 +154,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/userTrades
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#account-trade-list-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Account-Trade-List}
      */
     getAccountTradeList (symbol, options = {}) {
       validateRequiredParameters({ symbol })
@@ -172,7 +172,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/leverageBracket
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#notional-and-leverage-brackets-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Notional-and-Leverage-Brackets}
      */
     getNotionalAndLeverageBrackets (options = {}) {
       return this.signRequest(
@@ -187,7 +187,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/rateLimit/order
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#query-user-rate-limit-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Query-Rate-Limit}
      */
     getUserRateLimit (options = {}) {
       return this.signRequest(
@@ -202,7 +202,7 @@ const Account = (superclass) =>
      *
      * POST /fapi/v1/feeBurn
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#toggle-bnb-burn-on-futures-trade-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Toggle-BNB-Burn-On-Futures-Trade}
      */
     feeBurn (feeBurn, options = {}) {
       validateRequiredParameters({ feeBurn })
@@ -220,7 +220,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/feeBurn
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-bnb-burn-status-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-BNB-Burn-Status}
      */
     getFeeBurn (options = {}) {
       return this.signRequest(

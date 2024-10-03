@@ -19,7 +19,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/openInterestHist<br>
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#open-interest-statistics}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Open-Interest-Statistics}
      */
     getOpenInterestStatistics (pair, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, period })
@@ -35,7 +35,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/topLongShortAccountRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#top-trader-long-short-ratio-accounts}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Top-Long-Short-Account-Ratio}
      */
     topTraderLongShortAccountRatio (pair, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, period })
@@ -51,7 +51,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/topLongShortPositionRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#top-trader-long-short-ratio-positions}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Top-Trader-Long-Short-Ratio}
      */
     topTraderLongShortPositionRatio (pair, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, period })
@@ -67,7 +67,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/globalLongShortAccountRatio
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#long-short-ratio}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Long-Short-Ratio}
      */
     globalLongShortAccountRatio (pair, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, period })
@@ -83,7 +83,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/takerBuySellVol
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#taker-buy-sell-volume}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Taker-Buy-Sell-Volume}
      */
     takerBuySellVolume (pair, contractType, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, contractType, period })
@@ -99,7 +99,7 @@ const Market = (superclass) =>
      *
      * GET /futures/data/basis
      *
-     * {@link https://binance-docs.github.io/apidocs/delivery/en/#basis}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data/Basis}
      */
     getBasis (pair, contractType, period, limit, startTime, endTime) {
       validateRequiredParameters({ pair, contractType, period })

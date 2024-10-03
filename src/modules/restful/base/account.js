@@ -15,7 +15,7 @@ const Account = (superclass) =>
      * POST /fapi/v1/positionSide/dual
      * POST /dapi/v1/positionSide/dual
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#change-position-mode-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Position-Mode}
      */
     changePositionMode (dualSidePosition, options = {}) {
       validateRequiredParameters({ dualSidePosition })
@@ -34,7 +34,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/positionSide/dual
      * GET /dapi/v1/positionSide/dual
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#position-side-dual-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Current-Position-Mode}
      */
     getPositionMode (options = {}) {
       return this.signRequest(
@@ -50,7 +50,7 @@ const Account = (superclass) =>
      * POST /fapi/v1/order
      * POST /dapi/v1/order
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#new-order-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/New-Order}
      * @param {string} symbol
      * @param {string} side
      * @param {string} type
@@ -76,7 +76,7 @@ const Account = (superclass) =>
      * POST /fapi/v1/batchOrders
      * POST /dapi/v1/batchOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#place-multiple-orders-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Place-Multiple-Orders}
      * @param {Array} batchOrders
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -98,7 +98,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/orderAmendment
      * GET /dapi/v1/orderAmendment
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-order-modify-history-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Get-Order-Modify-History}
      *
      * @param {string} symbol - The symbol for which the order modification history is requested.
      * @param {Object} options - The additional options for the request. (optional)
@@ -120,7 +120,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/order
      * GET /dapi/v1/order
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#query-order-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/Query-Order}
      *
      * @param {string} symbol - The symbol for which the order is placed.
      * @param {string} side - The side of the order (BUY/SELL).
@@ -144,7 +144,7 @@ const Account = (superclass) =>
      * DELETE /fapi/v1/order
      * DELETE /dapi/v1/order
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#cancel-order-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Order}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -167,7 +167,7 @@ const Account = (superclass) =>
      * DELETE /fapi/v1/allOpenOrders
      * DELETE /dapi/v1/allOpenOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#cancel-all-open-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-All-Open-Orders}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -191,7 +191,7 @@ const Account = (superclass) =>
      * DELETE /fapi/v1/batchOrders
      * DELETE /dapi/v1/batchOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#cancel-multiple-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Multiple-Orders}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -211,10 +211,10 @@ const Account = (superclass) =>
     /**
      * Cancel All Open Orders (USER_DATA)
      *
-     * DELETE /fapi/v1/countdownCancelAll
-     * DELETE /dapi/v1/countdownCancelAll
+     * POST /fapi/v1/countdownCancelAll
+     * POST /dapi/v1/countdownCancelAll
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#cancel-all-open-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Auto-Cancel-All-Open-Orders}
      *
      * @param {string} symbol
      * @param {number} countdownTime
@@ -239,7 +239,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/openOrder
      * GET /dapi/v1/openOrder
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#query-current-open-order-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Query-Current-Open-Order}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -261,7 +261,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/openOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#current-all-open-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Current-All-Open-Orders}
      *
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -279,7 +279,7 @@ const Account = (superclass) =>
      *
      * POST /fapi/v1/leverage
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#change-initial-leverage-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Initial-Leverage}
      *
      * @param {string} symbol
      * @param {number} leverage
@@ -303,7 +303,7 @@ const Account = (superclass) =>
      *
      * POST /fapi/v1/marginType
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#change-margin-type-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Margin-Type}
      *
      * @param {string} symbol
      * @param {string} marginType
@@ -327,7 +327,7 @@ const Account = (superclass) =>
      *
      * POST /fapi/v1/positionMargin
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#modify-isolated-position-margin-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Modify-Isolated-Position-Margin}
      *
      * @param {string} symbol
      * @param {number} amount
@@ -353,7 +353,7 @@ const Account = (superclass) =>
      *
      * GET /fapi/v1/positionMargin/history
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-position-margin-change-history-trade}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Get-Position-Margin-Change-History}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -376,7 +376,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/income
      * GET /dapi/v1/income
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-income-history-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Income-History}
      */
     getIncomeHistory (options = {}) {
       return this.signRequest(
@@ -392,7 +392,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/forceOrders
      * GET /dapi/v1/forceOrders
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#user-s-force-orders-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Users-Force-Orders}
      */
     getUsersForceOrders (options = {}) {
       return this.signRequest(
@@ -408,7 +408,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/adlQuantile
      * GET /dapi/v1/adlQuantile
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#position-adl-quantile-estimation-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Position-ADL-Quantile-Estimation}
      */
     getPositionADLQuantileEstimation (options = {}) {
       return this.signRequest(
@@ -424,7 +424,7 @@ const Account = (superclass) =>
      * GET /fapi/v1/commissionRate
      * GET /dapi/v1/commissionRate
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#user-commission-rate-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/User-Commission-Rate}
      */
     getUserCommissionRate (symbol, options = {}) {
       validateRequiredParameters({ symbol })
@@ -448,7 +448,7 @@ const Account = (superclass) =>
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      *
-     * {@link https://binance-docs.github.io/apidocs/futures/en/#get-download-id-for-futures-transaction-history-user_data}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Download-Id-For-Futures-Transaction-History}
      */
     getDownloadIdForFuturesTransactionHistory (
       startTime,
