@@ -3,7 +3,7 @@ const { nockMock, UMFuturesClient } = require('../../testUtils/testSetup')
 const { mockResponse } = require('../../testUtils/mockData')
 
 describe('#getDownloadIdForFuturesTransactionHistory', () => {
-  it('throw MissingParameterError when missing startTime', () => {
+  it('throw MissingParameterError when missing startTime and endTime', () => {
     expect(() => {
       UMFuturesClient.getDownloadIdForFuturesTransactionHistory()
     }).toThrow(MissingParameterError)

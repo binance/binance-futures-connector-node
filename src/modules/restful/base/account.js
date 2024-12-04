@@ -16,15 +16,18 @@ const Account = (superclass) =>
      * POST /dapi/v1/positionSide/dual
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Position-Mode}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Change-Position-Mode}
+     *
+     * @param {string} dualSidePosition - If true, Hedge Mode. Else One-way Mode
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     changePositionMode (dualSidePosition, options = {}) {
       validateRequiredParameters({ dualSidePosition })
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/positionSide/dual`,
-        Object.assign(options, {
-          dualSidePosition: dualSidePosition.toLowerCase()
-        })
+        { ...options, dualSidePosition: dualSidePosition.toLowerCase() }
       )
     }
 
@@ -35,6 +38,10 @@ const Account = (superclass) =>
      * GET /dapi/v1/positionSide/dual
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Current-Position-Mode}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Current-Position-Mode}
+     *
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     getPositionMode (options = {}) {
       return this.signRequest(
@@ -50,7 +57,9 @@ const Account = (superclass) =>
      * POST /fapi/v1/order
      * POST /dapi/v1/order
      *
-     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/New-Order}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade}
+     *
      * @param {string} symbol
      * @param {string} side
      * @param {string} type
@@ -62,11 +71,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/order`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          side: side.toUpperCase(),
-          type: type.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase(), side: side.toUpperCase(), type: type.toUpperCase() }
       )
     }
 
@@ -77,6 +82,8 @@ const Account = (superclass) =>
      * POST /dapi/v1/batchOrders
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Place-Multiple-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Place-Multiple-Orders}
+     *
      * @param {Array} batchOrders
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -86,9 +93,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/batchOrders`,
-        Object.assign(options, {
-          batchOrders
-        })
+        { ...options, batchOrders }
       )
     }
 
@@ -99,6 +104,7 @@ const Account = (superclass) =>
      * GET /dapi/v1/orderAmendment
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Get-Order-Modify-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Get-Order-Modify-History}
      *
      * @param {string} symbol - The symbol for which the order modification history is requested.
      * @param {Object} options - The additional options for the request. (optional)
@@ -108,9 +114,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/orderAmendment`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -120,7 +124,8 @@ const Account = (superclass) =>
      * GET /fapi/v1/order
      * GET /dapi/v1/order
      *
-     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/websocket-api/Query-Order}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Query-Order}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Query-Order}
      *
      * @param {string} symbol - The symbol for which the order is placed.
      * @param {string} side - The side of the order (BUY/SELL).
@@ -132,9 +137,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/order`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -145,6 +148,7 @@ const Account = (superclass) =>
      * DELETE /dapi/v1/order
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Order}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Cancel-Order}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -155,9 +159,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'DELETE',
         `${this.baseURL}/${this.product}/v1/order`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -168,6 +170,7 @@ const Account = (superclass) =>
      * DELETE /dapi/v1/allOpenOrders
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-All-Open-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Cancel-All-Open-Orders}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -179,9 +182,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'DELETE',
         `${this.baseURL}/${this.product}/v1/allOpenOrders`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -192,6 +193,7 @@ const Account = (superclass) =>
      * DELETE /dapi/v1/batchOrders
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Cancel-Multiple-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Cancel-Multiple-Orders}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -202,9 +204,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'DELETE',
         `${this.baseURL}/${this.product}/v1/batchOrders`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -215,6 +215,7 @@ const Account = (superclass) =>
      * POST /dapi/v1/countdownCancelAll
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Auto-Cancel-All-Open-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Auto-Cancel-All-Open-Orders}
      *
      * @param {string} symbol
      * @param {number} countdownTime
@@ -226,10 +227,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/countdownCancelAll`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          countdownTime
-        })
+        { ...options, symbol: symbol.toUpperCase(), countdownTime }
       )
     }
 
@@ -240,6 +238,7 @@ const Account = (superclass) =>
      * GET /dapi/v1/openOrder
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Query-Current-Open-Order}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Query-Current-Open-Order}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -250,9 +249,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/openOrder`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -260,8 +257,10 @@ const Account = (superclass) =>
      * Current All Open Orders (USER_DATA)
      *
      * GET /fapi/v1/openOrders
+     * GET /dapi/v1/openOrders
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Current-All-Open-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Current-All-Open-Orders}
      *
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
@@ -278,8 +277,10 @@ const Account = (superclass) =>
      * Change Initial Leverage (TRADE)
      *
      * POST /fapi/v1/leverage
+     * POST /dapi/v1/leverage
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Initial-Leverage}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Change-Initial-Leverage}
      *
      * @param {string} symbol
      * @param {number} leverage
@@ -291,10 +292,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/leverage`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          leverage
-        })
+        { ...options, symbol: symbol.toUpperCase(), leverage }
       )
     }
 
@@ -302,8 +300,10 @@ const Account = (superclass) =>
      * Change Margin Type (TRADE)
      *
      * POST /fapi/v1/marginType
+     * POST /dapi/v1/marginType
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Change-Margin-Type}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Change-Margin-Type}
      *
      * @param {string} symbol
      * @param {string} marginType
@@ -315,10 +315,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/marginType`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          marginType: marginType.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase(), marginType: marginType.toUpperCase() }
       )
     }
 
@@ -326,8 +323,10 @@ const Account = (superclass) =>
      * Modify Isolated Position Margin (TRADE)
      *
      * POST /fapi/v1/positionMargin
+     * POST /dapi/v1/positionMargin
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Modify-Isolated-Position-Margin}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Modify-Isolated-Position-Margin}
      *
      * @param {string} symbol
      * @param {number} amount
@@ -340,11 +339,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'POST',
         `${this.baseURL}/${this.product}/v1/positionMargin`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          amount,
-          type
-        })
+        { ...options, symbol: symbol.toUpperCase(), amount, type }
       )
     }
 
@@ -352,8 +347,10 @@ const Account = (superclass) =>
      * Get Position Margin Change History (TRADE)
      *
      * GET /fapi/v1/positionMargin/history
+     * GET /dapi/v1/positionMargin/history
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Get-Position-Margin-Change-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Get-Position-Margin-Change-History}
      *
      * @param {string} symbol
      * @param {object} [options]
@@ -364,9 +361,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/positionMargin/history`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -377,6 +372,16 @@ const Account = (superclass) =>
      * GET /dapi/v1/income
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Income-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Income-History}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
+     * @param {string} [options.incomeType] - TRANSFER, WELCOME_BONUS, REALIZED_PNL, FUNDING_FEE, COMMISSION, INSURANCE_CLEAR, REFERRAL_KICKBACK, COMMISSION_REBATE, API_REBATE, CONTEST_REWARD, CROSS_COLLATERAL_TRANSFER, OPTIONS_PREMIUM_FEE, OPTIONS_SETTLE_PROFIT, INTERNAL_TRANSFER, AUTO_EXCHANGE, DELIVERED_SETTELMENT, COIN_SWAP_DEPOSIT, COIN_SWAP_WITHDRAW, POSITION_LIMIT_INCREASE_FEE
+     * @param {number} [options.startTime] - Timestamp in ms to get funding from INCLUSIVE.
+     * @param {number} [options.endTime] - Timestamp in ms to get funding until INCLUSIVE.
+     * @param {number} [options.page]
+     * @param {number} [options.limit] - Default 100, max 1000
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     getIncomeHistory (options = {}) {
       return this.signRequest(
@@ -393,6 +398,15 @@ const Account = (superclass) =>
      * GET /dapi/v1/forceOrders
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Users-Force-Orders}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Users-Force-Orders}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
+     * @param {string} [options.autoCloseType] - LIQUIDATION for liquidation orders, ADL for ADL orders.
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
+     * @param {number} [options.limit] - Default 100, max 1000
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     getUsersForceOrders (options = {}) {
       return this.signRequest(
@@ -409,6 +423,11 @@ const Account = (superclass) =>
      * GET /dapi/v1/adlQuantile
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Position-ADL-Quantile-Estimation}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/trade/Position-ADL-Quantile-Estimation}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     getPositionADLQuantileEstimation (options = {}) {
       return this.signRequest(
@@ -425,15 +444,18 @@ const Account = (superclass) =>
      * GET /dapi/v1/commissionRate
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/User-Commission-Rate}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/User-Commission-Rate}
+     *
+     * @param {string} symbol
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
      */
     getUserCommissionRate (symbol, options = {}) {
       validateRequiredParameters({ symbol })
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/commissionRate`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase()
-        })
+        { ...options, symbol: symbol.toUpperCase() }
       )
     }
 
@@ -443,12 +465,13 @@ const Account = (superclass) =>
      * GET /fapi/v1/income/asyn
      * GET /dapi/v1/income/asyn
      *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Download-Id-For-Futures-Transaction-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Download-Id-For-Futures-Transaction-History}
+     *
      * @param {@number} startTime - The start timestamp.
      * @param {@number} endTime - The end timestamp.
      * @param {object} [options]
      * @param {number} [options.recvWindow] - The value cannot be greater than 60000
-     *
-     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Download-Id-For-Futures-Transaction-History}
      */
     getDownloadIdForFuturesTransactionHistory (
       startTime,
@@ -459,10 +482,136 @@ const Account = (superclass) =>
       return this.signRequest(
         'GET',
         `${this.baseURL}/${this.product}/v1/income/asyn`,
-        Object.assign(options, {
-          startTime,
-          endTime
-        })
+        { ...options, startTime, endTime }
+      )
+    }
+
+    /**
+     * Get Futures Transaction History Download Link by Id (USER_DATA)
+     *
+     * GET /fapi/v1/income/asyn/id
+     * GET /dapi/v1/income/asyn/id
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Futures-Transaction-History-Download-Link-by-Id}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Futures-Transaction-History-Download-Link-by-Id}
+     *
+     * @param {string} downloadId - get by download id api
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
+     */
+    getFuturesTransactionHistoryDownloadLinkById (
+      downloadId,
+      options = {}
+    ) {
+      validateRequiredParameters({ downloadId })
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/income/asyn/id`,
+        { ...options, downloadId }
+      )
+    }
+
+    /**
+     * Get Download Id For Futures Order History (USER_DATA)
+     *
+     * GET /fapi/v1/order/asyn
+     * GET /dapi/v1/order/asyn
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Download-Id-For-Futures-Order-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Download-Id-For-Futures-Order-History}
+     *
+     * @param {@number} startTime - Timestamp in ms
+     * @param {@number} endTime - Timestamp in ms
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
+     */
+    getDownloadIdForFuturesOrderHistory (
+      startTime,
+      endTime,
+      options = {}
+    ) {
+      validateRequiredParameters({ startTime, endTime })
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/order/asyn`,
+        { ...options, startTime, endTime }
+      )
+    }
+
+    /**
+     * Get Futures Order History Download Link by Id (USER_DATA)
+     *
+     * GET /fapi/v1/order/asyn/id
+     * GET /dapi/v1/order/asyn/id
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Futures-Order-History-Download-Link-by-Id}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Futures-Order-History-Download-Link-by-Id}
+     *
+     * @param {string} downloadId - get by download id api
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
+     */
+    getFuturesOrderHistoryDownloadLinkById (
+      downloadId,
+      options = {}
+    ) {
+      validateRequiredParameters({ downloadId })
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/order/asyn/id`,
+        { ...options, downloadId }
+      )
+    }
+
+    /**
+     * Get Download Id For Futures Trade History (USER_DATA)
+     *
+     * GET /fapi/v1/trade/asyn
+     * GET /dapi/v1/trade/asyn
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Download-Id-For-Futures-Trade-History}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Download-Id-For-Futures-Trade-History}
+     *
+     * @param {@number} startTime - Timestamp in ms
+     * @param {@number} endTime - Timestamp in ms
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
+     */
+    getDownloadIdForFuturesTradeHistory (
+      startTime,
+      endTime,
+      options = {}
+    ) {
+      validateRequiredParameters({ startTime, endTime })
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/trade/asyn`,
+        { ...options, startTime, endTime }
+      )
+    }
+
+    /**
+     * Get Futures Trade Download Link by Id (USER_DATA)
+     *
+     * GET /fapi/v1/trade/asyn/id
+     * GET /dapi/v1/trade/asyn/id
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/account/rest-api/Get-Futures-Trade-Download-Link-by-Id}
+     * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/account/Get-Futures-Trade-Download-Link-by-Id}
+     *
+     * @param {string} downloadId - get by download id api
+     * @param {object} [options]
+     * @param {number} [options.recvWindow] - The value cannot be greater than 60000
+     */
+    getFuturesTradeDownloadLinkById (
+      downloadId,
+      options = {}
+    ) {
+      validateRequiredParameters({ downloadId })
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v1/trade/asyn/id`,
+        { ...options, downloadId }
       )
     }
   }

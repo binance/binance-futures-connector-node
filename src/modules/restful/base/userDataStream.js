@@ -10,10 +10,10 @@ const { validateRequiredParameters } = require('../../../helpers/validation')
 const UserDataStream = (superclass) =>
   class extends superclass {
     /**
-     * Create a ListenKey (USER_STREAM)<br>
+     * Create a ListenKey (USER_STREAM)
      *
-     * POST /fapi/v1/listenKey<br>
-     * POST /dapi/v1/listenKey<br>
+     * POST /fapi/v1/listenKey
+     * POST /dapi/v1/listenKey
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Start-User-Data-Stream}
      * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Start-User-Data-Stream}
@@ -23,10 +23,10 @@ const UserDataStream = (superclass) =>
     }
 
     /**
-     * Ping/Keep-alive a ListenKey (USER_STREAM)<br>
+     * Ping/Keep-alive a ListenKey (USER_STREAM)
      *
-     * PUT /fapi/v1/listenKey<br>
-     * PUT /dapi/v1/listenKey<br>
+     * PUT /fapi/v1/listenKey
+     * PUT /dapi/v1/listenKey
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Keepalive-User-Data-Stream}
      * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Keepalive-User-Data-Stream}
@@ -34,6 +34,9 @@ const UserDataStream = (superclass) =>
      * @param {string} listenKey
      */
     renewListenKey (listenKey) {
+      if (typeof listenKey !== 'string') {
+        throw new Error('ListenKey must be a string')
+      }
       validateRequiredParameters({ listenKey })
       return this.publicRequest('PUT', `/${this.product}/v1/listenKey`, {
         listenKey
@@ -41,10 +44,10 @@ const UserDataStream = (superclass) =>
     }
 
     /**
-     * Close a ListenKey (USER_STREAM)<br>
+     * Close a ListenKey (USER_STREAM)
      *
-     * DELETE /fapi/v1/listenKey<br>
-     * DELETE /dapi/v1/listenKey<br>
+     * DELETE /fapi/v1/listenKey
+     * DELETE /dapi/v1/listenKey
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/user-data-streams/Close-User-Data-Stream}
      * {@link https://developers.binance.com/docs/derivatives/coin-margined-futures/user-data-streams/Close-User-Data-Stream}
@@ -52,6 +55,9 @@ const UserDataStream = (superclass) =>
      * @param {string} listenKey
      */
     closeListenKey (listenKey) {
+      if (typeof listenKey !== 'string') {
+        throw new Error('ListenKey must be a string')
+      }
       validateRequiredParameters({ listenKey })
       return this.publicRequest('DELETE', `/${this.product}/v1/listenKey`, {
         listenKey

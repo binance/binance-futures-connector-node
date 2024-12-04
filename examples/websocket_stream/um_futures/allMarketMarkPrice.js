@@ -2,7 +2,7 @@
 
 const { Console } = require('console')
 
-const UMStream = require('../../../src/modules/websocket/UMStream')
+const { UMStream } = require('../../../src')
 const logger = new Console({ stdout: process.stdout, stderr: process.stderr })
 
 const callbacks = {

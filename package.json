@@ -13,6 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/binance/binance-futures-connector-node.git"
   },
+  "engines": {
+    "node": ">=16.20.2",
+    "npm": ">=8.19.4"
+  },
   "keywords": [
     "Binance",
     "API"

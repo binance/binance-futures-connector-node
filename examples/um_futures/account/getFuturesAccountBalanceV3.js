@@ -7,6 +7,6 @@ const umFuturesClient = new UMFutures(apiKey, apiSecret, {
 })
 
 umFuturesClient
-  .getPositionInformationV2()
+  .getFuturesAccountBalanceV3()
   .then((response) => console.log(response))
   .catch(console.error)

@@ -11,19 +11,21 @@ const batchOrders = [
     symbol: 'BNBUSDT',
     side: 'BUY',
     type: 'LIMIT',
-    quantity: 1,
-    price: 0.001
+    quantity: '1.0',
+    price: '599.001',
+    timeInForce: 'GTC'
   },
   {
     symbol: 'BNBUSDT',
     side: 'SELL',
     type: 'LIMIT',
-    quantity: 1,
-    price: 0.002
+    quantity: '1.0',
+    price: '599.002',
+    timeInForce: 'GTC'
   }
 ]
 
 umFuturesClient
-  .placeMultipleOrders(batchOrders)
-  .then((response) => console.log(response))
+  .placeMultipleOrders(JSON.stringify(batchOrders))
+  .then((response) => console.log(response.data))
   .catch(console.error)
