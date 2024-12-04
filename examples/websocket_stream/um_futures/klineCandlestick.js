@@ -2,7 +2,7 @@
 
 const { Console } = require('console')
 
-const UMStream = require('../../../src/modules/websocket/UMStream')
+const { UMStream } = require('../../../src')
 const logger = new Console({ stdout: process.stdout, stderr: process.stderr })
 
 const callbacks = {
@@ -15,4 +15,4 @@ const websocketStreamClient = new UMStream({ logger, callbacks })
 
 websocketStreamClient.klineCandlestickStream('bnbusdt', '1m')
 
-setTimeout(() => websocketStreamClient.disconnect(), 6000)
+setTimeout(() => websocketStreamClient.disconnect(), 20000)

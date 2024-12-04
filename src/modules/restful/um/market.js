@@ -20,6 +20,13 @@ const Market = (superclass) =>
      * GET /futures/data/openInterestHist
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Open-Interest-Statistics}
+     *
+     * @param {string} symbol
+     * @param {string} period - 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d
+     * @param {object} [options]
+     * @param {number} [options.limit] - Default 30, Max 500
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
      */
     getOpenInterestStatistics (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -36,6 +43,13 @@ const Market = (superclass) =>
      * GET /futures/data/topLongShortAccountRatio
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Top-Long-Short-Account-Ratio}
+     *
+     * @param {string} symbol
+     * @param {string} period - 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d
+     * @param {object} [options]
+     * @param {number} [options.limit] - Default 30, Max 500
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
      */
     topTraderLongShortAccountRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -52,6 +66,13 @@ const Market = (superclass) =>
      * GET /futures/data/topLongShortPositionRatio
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Top-Trader-Long-Short-Ratio}
+     *
+     * @param {string} symbol
+     * @param {string} period - 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d
+     * @param {object} [options]
+     * @param {number} [options.limit] - Default 30, Max 500
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
      */
     topTraderLongShortPositionRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -68,6 +89,13 @@ const Market = (superclass) =>
      * GET /futures/data/globalLongShortAccountRatio
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Long-Short-Ratio}
+     *
+     * @param {string} symbol
+     * @param {string} period - 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d
+     * @param {object} [options]
+     * @param {number} [options.limit] - Default 30, Max 500
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
      */
     globalLongShortAccountRatio (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -84,6 +112,13 @@ const Market = (superclass) =>
      * GET /futures/data/takerlongshortRatio
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Taker-BuySell-Volume}
+     *
+     * @param {string} symbol
+     * @param {string} period - 5m, 15m, 30m, 1h, 2h, 4h, 6h, 12h, 1d
+     * @param {object} [options]
+     * @param {number} [options.limit] - Default 30, Max 500
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
      */
     takerBuySellVolume (symbol, period, limit, startTime, endTime) {
       validateRequiredParameters({ symbol, period })
@@ -100,6 +135,8 @@ const Market = (superclass) =>
      * GET /futures/data/delivery-price
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Delivery-Price}
+     *
+     * @param {string} pair
      */
     deliveryPrice (pair) {
       validateRequiredParameters({ pair })
@@ -116,6 +153,13 @@ const Market = (superclass) =>
      * GET /fapi/v1/lvtKlines
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Historical-BLVT-NAV-Kline-Candlestick}
+     *
+     * @param {string} symbol
+     * @param {string} interval
+     * @param {object} [options]
+     * @param {number} [options.startTime]
+     * @param {number} [options.endTime]
+     * @param {number} [options.limit]
      */
     blvtKlines (symbol, interval, startTime, endTime, limit) {
       validateRequiredParameters({ symbol, interval })
@@ -132,6 +176,9 @@ const Market = (superclass) =>
      * GET /fapi/v2/ticker/price
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Symbol-Price-Ticker-v2}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
      */
     getPriceTickerV2 (symbol) {
       return this.publicRequest(
@@ -147,6 +194,9 @@ const Market = (superclass) =>
      * GET /fapi/v1/indexInfo
      *
      * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Composite-Index-Symbol-Information}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
      */
     indexInfo (symbol) {
       return this.publicRequest(
@@ -161,7 +211,10 @@ const Market = (superclass) =>
      *
      * GET /fapi/v1/assetIndex
      *
-     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/websocket-market-streams/Multi-Assets-Mode-Asset-Index}
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data/rest-api/Multi-Assets-Mode-Asset-Index}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
      */
     assetIndex (symbol) {
       return this.publicRequest(

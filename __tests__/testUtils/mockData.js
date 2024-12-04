@@ -23,6 +23,7 @@ module.exports = {
   productId: 'BNB_DAILY',
   projectId: 'project_id',
   quantity: 10,
+  quoteId: '1234',
   recvWindow: 1000,
   side: 'BUY',
   startTime: 1111111,

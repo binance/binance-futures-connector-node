@@ -15,9 +15,9 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 16.x
           - 18.x
           - 20.x
+          - 22.x
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -43,10 +43,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js 20.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
 
       - name: Install dependencies
         run: npm install

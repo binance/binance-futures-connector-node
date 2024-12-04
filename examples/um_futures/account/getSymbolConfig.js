@@ -7,6 +7,6 @@ const umFuturesClient = new UMFutures(apiKey, apiSecret, {
 })
 
 umFuturesClient
-  .getAccountInformationV2()
-  .then(({ data }) => console.log(data))
+  .getSymbolConfig()
+  .then((response) => console.log(response))
   .catch(console.error)

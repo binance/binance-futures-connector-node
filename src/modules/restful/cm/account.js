@@ -35,10 +35,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'PUT',
         `${this.baseURL}/${this.product}/v1/order`,
-        Object.assign(options, {
-          symbol: symbol.toUpperCase(),
-          side
-        })
+        { ...options, symbol: symbol.toUpperCase(), side }
       )
     }
 
@@ -58,9 +55,7 @@ const Account = (superclass) =>
       return this.signRequest(
         'PUT',
         `${this.baseURL}/${this.product}/v1/batchOrders`,
-        Object.assign(options, {
-          batchOrders
-        })
+        { ...options, batchOrders }
       )
     }
 

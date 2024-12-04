@@ -2,7 +2,7 @@
 
 const { Console } = require('console')
 
-const CMStream = require('../../../src/modules/websocket/CMStream')
+const { CMStream } = require('../../../src')
 const logger = new Console({ stdout: process.stdout, stderr: process.stderr })
 
 const callbacks = {

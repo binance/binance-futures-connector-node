@@ -1,4 +1,4 @@
-const { UMFutures } = require('../../../src/um_futures')
+const { UMFutures } = require('../../../src')
 
 const umFuturesClient = new UMFutures('', '', {
   baseURL: 'https://fapi.binance.com'

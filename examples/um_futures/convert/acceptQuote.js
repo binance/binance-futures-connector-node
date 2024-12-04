@@ -7,6 +7,6 @@ const umFuturesClient = new UMFutures(apiKey, apiSecret, {
 })
 
 umFuturesClient
-  .getFuturesAccountBalanceV2()
-  .then((response) => console.log(response))
+  .acceptQuote('12345')
+  .then((response) => console.log(response.data))
   .catch(console.error)
