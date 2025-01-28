@@ -196,6 +196,25 @@ const Account = (superclass) =>
     }
 
     /**
+     * Position Information V2 (USER_DATA)
+     *
+     * GET /fapi/v3/positionRisk
+     *
+     * {@link https://developers.binance.com/docs/derivatives/usds-margined-futures/trade/rest-api/Position-Information-V2}
+     *
+     * @param {object} [options]
+     * @param {string} [options.symbol]
+     * @param {number} [options.recvWindow]
+     */
+    getPositionInformationV2 (options = {}) {
+      return this.signRequest(
+        'GET',
+        `${this.baseURL}/${this.product}/v2/positionRisk`,
+        options
+      )
+    }
+
+    /**
      * Position Information V3 (USER_DATA)
      *
      * GET /fapi/v3/positionRisk

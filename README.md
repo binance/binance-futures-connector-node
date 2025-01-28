@@ -232,9 +232,10 @@ There are 2 types of error that may be returned from the API server and the user
 
 The WebSocket URLs for the available futures environments are as follows:
 
-- Testnet: wss://stream.binancefuture.com
-- Main CM: wss://dstream.binancefuture.com
-- Main UM: wss://fstream.binancefuture.com
+- Testnet CM: wss://dstream.binancefuture.com
+- Testnet UM: wss://stream.binancefuture.com
+- Main CM: wss://dstream.binance.com
+- Main UM: wss://fstream.binance.com
 
 ### Websocket Streams
 
@@ -255,7 +256,7 @@ const callbacks = {
 const umWebsocketStreamClient = new UMStream({
   logger,
   callbacks,
-  wsURL: "wss://fstream.binancefuture.com",
+  wsURL: "wss://fstream.binance.com",
 });
 
 // Subscribe to the allMarketMiniTickersStream stream
