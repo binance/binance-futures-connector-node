@@ -1,5 +1,10 @@
 # Change log
 
+## v0.1.7 - 2025-01-28
+### Added
+#### UM Futures
+- `GET /fapi/v2/positionRisk` - This endpoint will soon be deprecated. Please use `GET /fapi/v3/positionRisk` instead.
+
 ## v0.1.6 - 2024-12-04
 ### Added
 #### UM Futures
