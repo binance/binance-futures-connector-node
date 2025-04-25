@@ -1,9 +1,11 @@
-# NodeJS Binance Futures Connector
+# NodeJS Binance Futures Connector - DEPRECATED
 
 [![npm version](https://badge.fury.io/js/%40binance%2Ffutures-connector.svg)](https://badge.fury.io/js/%40binance%2Ffutures-connector)
 [![Node version](https://img.shields.io/node/v/%40binance%2Ffutures-connector.svg?style=flat)](http://nodejs.org/download/)
 [![Standard-Js](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**This repository is deprecated. Please use the new modular connector repository: [binance-connector-js](https://github.com/binance/binance-connector-js)**
 
 This is a lightweight library that works as a connector to the UM and CM Binance Futures Endpoints. It’s designed to be simple, clean, and easy to use with minimal dependencies.
 
